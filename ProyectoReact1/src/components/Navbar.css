@@ -1,0 +1,22 @@
+
+
+.navbar{
+    position: relative;
+}
+.marca {
+    text-decoration: none;
+}
+
+
+.navbar-links {
+    width: 200px;
+    display: flex;
+    justify-content: space-around;
+}
+.navbar-links a {
+    color: black;
+    font-size: 24px;
+}
+.navbar-links a:hover {
+    color: azure;
+}

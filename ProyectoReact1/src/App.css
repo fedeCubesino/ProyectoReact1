@@ -1,0 +1,164 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.navbar {
+position: relative;
+  width: 100%;
+  height: 100px;
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+background-color: rgb(133, 26, 81);
+
+}
+.icon-navbar {
+position: absolute;
+width: 50px;
+height: 50px;
+border-radius: 30px;
+top: 10px;
+left: 30px;
+}
+.logo img {
+  width: 50px;
+      height: 50px;
+      border-radius: 30px;
+      position: absolute;
+      top: 20px;
+      left: 30px;
+}
+.marca{
+  position: relative;
+  left: -10%;
+}
+.marca h1 {
+  position: relative;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 50px;
+  color: #e0b0ff;
+  -webkit-text-stroke: 0.9px #0a0113;
+  text-transform: uppercase;
+}
+.marca h1::before {
+  content: attr(data-text);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        color: #56070c;
+        -webkit-text-stroke: 0.2Px #260549;
+        overflow: hidden;
+        animation: animate 2s linear infinite;
+}
+@keyframes animate {
+  0% {
+    width: 0; }
+  100% {
+    width: 100%; } 
+  }
+.navbar ul {
+  list-style: none;
+  display: flex;
+}
+.navbar ul li{
+justify-content: space-around;
+  margin: 10px;
+  text-decoration: none;
+  
+}
+.navbar ul li a {
+    color: black;
+}
+.navbar ul li a:hover {
+  color: rgb(218, 198, 198);
+}
+.carrito {
+  position: relative;
+  right: -30%;
+}
+.contador {
+  position: absolute;
+  top: 0;
+  background-color: chocolate;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  text-align: center;
+}
+.vino-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem;
+  justify-content: center; /* Alinea las tarjetas al centro */
+}
+
+.vino-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+  width: 200px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1); 
+  transition: transform 0.2s, box-shadow 0.2s; 
+}
+
+.vino-card:hover {
+  transform: translateY(-10px); 
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 12px 40px rgba(0, 0, 0, 0.2); 
+}
+.vino-card a {
+  color: #1d0336;
+  text-decoration: none;
+  border: 1px solid;
+  border-radius: 10px;
+  padding: 2px;
+  margin-top: 5px;
+  
+}
+.vino-card a:hover {
+  color: aliceblue;
+  background-color: #56070c;
+}
+.vino-card img {
+  width: 150px;
+  height: 200px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  margin-bottom: 1rem; 
+}
+.vino-detail {
+  position: relative;
+  top: 100px;
+  left: 35%;
+  width: 200px;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.tintos {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  h1 {
+    font-size: 36px;
+  }
+}
+.blancos {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  h1 {
+    font-size: 36px;
+  }
+}
