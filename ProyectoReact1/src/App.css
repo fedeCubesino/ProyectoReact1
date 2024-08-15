@@ -79,6 +79,7 @@ justify-content: space-around;
 .carrito {
   position: relative;
   right: -30%;
+  cursor: pointer;
 }
 .contador {
   position: absolute;
@@ -162,3 +163,96 @@ justify-content: space-around;
     font-size: 36px;
   }
 }
+.vino-detail button {
+  background-color: #4d140d;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 15px;
+}
+
+.vino-detail button:hover {
+  background-color: #3b0634;
+}
+
+.cart {
+  position: absolute;
+  top: 50px;
+  right: 20px;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  max-width: 300px; 
+  overflow-y: auto; 
+  cursor:default;
+}
+
+.cart-title {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.cart-item-image {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.cart-item-details {
+  flex: 1;
+}
+
+.cart-item-name {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.cart-item-price {
+  margin: 5px 0;
+}
+
+.btn-remove {
+  background-color: #e74c3c;
+  color: white;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.btn-clear {
+  background-color: #c20f1e;
+  color: white;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.btn-close {
+  background-color: #95a5a6;
+  color: white;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.cart-total {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+

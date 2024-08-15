@@ -7,10 +7,19 @@ import VinoDetail from './components/VinoDetail';
 import Home from './components/Home'; 
 import { TintoProvider } from './context/TintoContext';
 import { BlancoProvider } from './context/BlancoContext';
+import { doc, getDoc, getFirestore} from "firebase/firestore";
 import './App.css';
+import { CartProvider } from './context/cartContext';
+import Cart from './components/Cart';
 
 function App() {
+  const db= getFirestore();
+  const prodRef = doc(db, "items" , "Vcv2DQXXIAVPp0cw3jtb");
+  getDoc(prodRef).then(
+    snapshot=> console.log(snapshot.data())
+  )
   return (
+  <CartProvider>
     <TintoProvider>
       <BlancoProvider>
         <Router>
@@ -21,11 +30,13 @@ function App() {
               <Route path="/tintos" element={<Tintos />} />
               <Route path="/blancos" element={<Blancos />} />
               <Route path="/vinos/:id" element={<VinoDetail />} />
+              <Route path="/cart" element={<Cart />} /> 
             </Routes>
           </div>
         </Router>
       </BlancoProvider>
     </TintoProvider>
+  </CartProvider>
   );
 }
 

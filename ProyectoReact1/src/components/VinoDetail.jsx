@@ -2,12 +2,13 @@ import React, { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { TintoContext } from '../context/TintoContext';
 import { BlancoContext } from '../context/BlancoContext';
-
+import { CartContext } from '../context/cartContext'; 
 
 const VinoDetail = () => {
   const { id } = useParams();
   const { tintos } = useContext(TintoContext);
   const { blancos } = useContext(BlancoContext);
+  const { addToCart } = useContext(CartContext); 
 
   const vino = tintos.find(vino => vino.id === parseInt(id)) || blancos.find(vino => vino.id === parseInt(id));
 
@@ -24,6 +25,7 @@ const VinoDetail = () => {
       <p><strong>Región:</strong> {vino.región}</p>
       <p><strong>Precio:</strong> ${vino.precio.toFixed(2)}</p>
       <p><strong>Descripción:</strong> {vino.descripción}</p>
+      <button onClick={() => addToCart(vino)}>Agregar al Carrito</button> 
     </div>
   );
 };
