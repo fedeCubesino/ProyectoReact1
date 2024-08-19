@@ -1,4 +1,5 @@
-import React from 'react';
+
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Tintos from './components/Tintos';
@@ -7,7 +8,7 @@ import VinoDetail from './components/VinoDetail';
 import Home from './components/Home'; 
 import { TintoProvider } from './context/TintoContext';
 import { BlancoProvider } from './context/BlancoContext';
-import { doc, getDoc, getFirestore} from "firebase/firestore";
+import { getFirestore, collection, getDocs } from 'firebase/firestore';
 import './App.css';
 import { CartProvider } from './context/cartContext';
 import Cart from './components/Cart';
@@ -16,11 +17,23 @@ import CheckoutSummary from './components/CheckoutSummary';
 
 
 function App() {
-  const db= getFirestore();
-  const prodRef = doc(db, "items" , "Vcv2DQXXIAVPp0cw3jtb");
-  getDoc(prodRef).then(
-    snapshot=> console.log(snapshot.data())
-  )
+  const db = getFirestore();
+
+  useEffect(() => {
+    const fetchItems = async () => {
+      try {
+        const itemsCollection = collection(db, 'items');
+        const itemsSnapshot = await getDocs(itemsCollection);
+        const itemsList = itemsSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        console.log(itemsList);
+      } catch (error) {
+        console.error('Error fetching items:', error);
+      }
+    };
+
+    fetchItems();
+  }, [db]);
+  
   return (
   <CartProvider>
     <TintoProvider>
