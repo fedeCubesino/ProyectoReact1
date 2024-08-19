@@ -1,11 +1,10 @@
-
-
 import React, { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { CartContext } from '../context/cartContext';
-
 
 const Cart = ({ onClose }) => {
   const { cartItems, removeFromCart, clearCart } = useContext(CartContext);
+  const navigate = useNavigate();
 
   if (!cartItems || cartItems.length === 0) {
     return (
@@ -17,6 +16,11 @@ const Cart = ({ onClose }) => {
   }
 
   const totalPrice = cartItems.reduce((total, item) => total + item.precio * (item.quantity || 1), 0);
+
+  const handleFinishBuying = () => {
+    onClose();
+    navigate('/checkout-form'); 
+  };
 
   return (
     <div className="cart">
@@ -34,6 +38,7 @@ const Cart = ({ onClose }) => {
       <h3 className="cart-total">Total: ${totalPrice.toFixed(2)}</h3>
       <button className="btn-clear" onClick={clearCart}>Vaciar Carrito</button>
       <button className="btn-close" onClick={onClose}>Cerrar</button>
+      <button className="btn-finish" onClick={handleFinishBuying}>Terminar compra</button>
     </div>
   );
 };

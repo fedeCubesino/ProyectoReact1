@@ -11,6 +11,9 @@ import { doc, getDoc, getFirestore} from "firebase/firestore";
 import './App.css';
 import { CartProvider } from './context/cartContext';
 import Cart from './components/Cart';
+import CheckoutForm from './components/CheckoutForm';
+import CheckoutSummary from './components/CheckoutSummary';
+
 
 function App() {
   const db= getFirestore();
@@ -31,6 +34,8 @@ function App() {
               <Route path="/blancos" element={<Blancos />} />
               <Route path="/vinos/:id" element={<VinoDetail />} />
               <Route path="/cart" element={<Cart />} /> 
+              <Route path="/checkout-form" element={<CheckoutForm />} />
+              <Route path="/checkout-summary" element={<CheckoutSummary />} />
             </Routes>
           </div>
         </Router>
